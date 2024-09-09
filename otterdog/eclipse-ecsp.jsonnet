@@ -41,5 +41,15 @@ orgs.newOrg('eclipse-ecsp') {
         default_workflow_permissions: "write",
       },
     },
+    orgs.newRepo('transformers') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "ECSP transformers",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+    },
   ],
 }
