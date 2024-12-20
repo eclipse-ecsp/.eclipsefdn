@@ -1,6 +1,6 @@
 local orgs = import 'vendor/otterdog-defaults/otterdog-defaults.libsonnet';
 
-orgs.newOrg('eclipse-ecsp') {
+orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
   settings+: {
     description: "",
     name: "Eclipse Connected Services Platform",
