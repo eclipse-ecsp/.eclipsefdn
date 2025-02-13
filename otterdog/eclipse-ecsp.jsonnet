@@ -77,7 +77,7 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       allow_merge_commit: true,
       allow_update_branch: false,
       delete_branch_on_merge: false,
-      description: "ECSP Android VehicleConnect SDK",
+      description: "ECSP iOS VehicleConnect SDK",
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "write",
@@ -92,7 +92,7 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       allow_merge_commit: true,
       allow_update_branch: false,
       delete_branch_on_merge: false,
-      description: "ECSP Android VehicleConnect SDK",
+      description: "ECSP iOS VehicleConnect App",
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "write",
