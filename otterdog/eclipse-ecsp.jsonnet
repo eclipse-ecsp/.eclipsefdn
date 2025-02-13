@@ -42,6 +42,11 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-androidVehicleConnectSDK",
+        },
+      ],
     },
     orgs.newRepo('androidVehicleConnectApp') {
       allow_merge_commit: true,
@@ -52,6 +57,11 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-androidVehicleConnectApp",
+        },
+      ],
     },
     orgs.newRepo('iOSVehicleConnectSDK') {
       allow_merge_commit: true,
@@ -62,6 +72,11 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-iOSVehicleConnectSDK",
+        },
+      ],
     },
     orgs.newRepo('iOSVehicleConnectApp') {
       allow_merge_commit: true,
@@ -72,6 +87,11 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-iOSVehicleConnectApp",
+        },
+      ],
     },
   ],
 }
