@@ -9,6 +9,23 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       actions_can_approve_pull_request_reviews: false,
       default_workflow_permissions: "write",
     },
+  secrets+: [        
+      orgs.newOrgSecret('GPG_KEY_ID') {
+        value: "pass:bots/automotive.ecsp/gpg/key_id",
+      },
+      orgs.newOrgSecret('GPG_PASSPHRASE') {
+        value: "pass:bots/automotive.ecsp/gpg/passphrase",
+      },
+      orgs.newOrgSecret('GPG_PRIVATE_KEY') {
+        value: "pass:bots/automotive.ecsp/gpg/secret-subkeys.asc",
+      },
+      orgs.newOrgSecret('OSSRH_PASSWORD') {
+        value: "pass:bots/automotive.ecsp/oss.sonatype.org/gh-token-password",
+      },
+      orgs.newOrgSecret('OSSRH_USERNAME') {
+        value: "pass:bots/automotive.ecsp/oss.sonatype.org/gh-token-username",
+      },
+    ],
   },
   _repositories+:: [
     orgs.newRepo('.github') {
