@@ -8,6 +8,7 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
     workflows+: {
       actions_can_approve_pull_request_reviews: false,
       default_workflow_permissions: "write",
+    },
   },
   secrets+: [        
     orgs.newOrgSecret('GPG_KEY_ID') {
