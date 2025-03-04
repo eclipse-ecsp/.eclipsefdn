@@ -32,6 +32,9 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
     orgs.newOrgSecret('OSSRH_USERNAME') {
       value: "pass:bots/automotive.ecsp/oss.sonatype.org/gh-token-username",
     },
+    orgs.newOrgSecret('GITLAB_API_TOKEN') {
+      value: "pass:bots/automotive.ecsp/gitlab.eclipse.org/api-token",
+    },
   ],
   _repositories+:: [
     orgs.newRepo('.github') {
