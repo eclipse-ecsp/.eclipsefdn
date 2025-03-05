@@ -35,6 +35,9 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
     orgs.newOrgSecret('GITLAB_API_TOKEN') {
       value: "pass:bots/automotive.ecsp/gitlab.eclipse.org/api-token",
     },
+    orgs.newOrgSecret('ECSP_BOT_PAT') {
+      value: "pass:/bots/automotive.ecsp/github.com/token-hd5703",
+    },
   ],
   _repositories+:: [
     orgs.newRepo('.github') {
