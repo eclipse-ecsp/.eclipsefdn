@@ -82,6 +82,31 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
         },
       ],
     },
+    orgs.newRepo('nosql-dao') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "ECSP NoSQL DAO library",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-nosql-dao",
+        },
+      ],
+    },
+    orgs.newRepo('cache-enabler') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "Enabler for caching functionality",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+    },
     orgs.newRepo('androidVehicleConnectSDK') {
       allow_merge_commit: true,
       allow_update_branch: false,
@@ -147,6 +172,16 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       allow_update_branch: false,
       delete_branch_on_merge: false,
       description: "ECSP service for CICD integration test",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+    },
+    orgs.newRepo('device-client') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "ECSP device-client",
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "write",
