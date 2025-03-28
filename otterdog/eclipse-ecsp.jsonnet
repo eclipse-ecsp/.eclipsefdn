@@ -106,6 +106,11 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-sql-dao",
+        },
+      ],
     },
     orgs.newRepo('cache-enabler') {
       allow_merge_commit: true,
