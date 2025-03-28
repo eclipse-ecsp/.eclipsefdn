@@ -97,6 +97,16 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
         },
       ],
     },
+    orgs.newRepo('sql-dao') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "ECSP SQL DAO library",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+    },
     orgs.newRepo('cache-enabler') {
       allow_merge_commit: true,
       allow_update_branch: false,
