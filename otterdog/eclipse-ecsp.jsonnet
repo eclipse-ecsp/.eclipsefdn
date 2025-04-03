@@ -127,7 +127,8 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
         },
       ],
     },
-    orgs.newRepo('tranformers') {
+    orgs.newRepo('transformers') {
+      aliases: ['tranformers'],
       allow_merge_commit: true,
       allow_update_branch: false,
       delete_branch_on_merge: false,
