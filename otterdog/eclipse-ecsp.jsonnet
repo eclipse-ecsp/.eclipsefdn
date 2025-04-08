@@ -143,6 +143,16 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
         },
       ],
     },
+    orgs.newRepo('streambase') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "Enabler for event-driven microservices and MQTT communication",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+    },
     orgs.newRepo('androidVehicleConnectSDK') {
       allow_merge_commit: true,
       allow_update_branch: false,
