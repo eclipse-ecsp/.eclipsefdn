@@ -153,6 +153,16 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
         default_workflow_permissions: "write",
       },
     },
+    orgs.newRepo('api-gateway') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "A Spring cloud gateway based API Gateway that serves as a single entry point for microservices",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+    },
     orgs.newRepo('androidVehicleConnectSDK') {
       allow_merge_commit: true,
       allow_update_branch: false,
