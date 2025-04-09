@@ -20,6 +20,9 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
     orgs.newOrgSecret('GPG_KEY_ID') {
       value: "pass:bots/automotive.ecsp/gpg/key_id",
     },
+    orgs.newOrgSecret('GPG_SUBKEY_ID') {
+      value: "pass:bots/automotive.ecsp/gpg/subkey_id",
+    },
     orgs.newOrgSecret('GPG_PASSPHRASE') {
       value: "pass:bots/automotive.ecsp/gpg/passphrase",
     },
