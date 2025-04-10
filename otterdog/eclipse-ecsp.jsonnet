@@ -262,11 +262,6 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       workflows+: {
         default_workflow_permissions: "write",
       },
-      secrets: [
-        orgs.newRepoSecret('SONAR_TOKEN') {
-          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-uidam-user-management",
-        },
-      ],
     },
     orgs.newRepo('uidam-authorization-server') {
       allow_merge_commit: true,
@@ -277,11 +272,6 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       workflows+: {
         default_workflow_permissions: "write",
       },
-      secrets: [
-        orgs.newRepoSecret('SONAR_TOKEN') {
-          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-uidam-authorization-server",
-        },
-      ],
     },
   ],
 }
