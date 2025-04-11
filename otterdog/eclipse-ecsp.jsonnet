@@ -20,6 +20,9 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
     orgs.newOrgSecret('GPG_KEY_ID') {
       value: "pass:bots/automotive.ecsp/gpg/key_id",
     },
+    orgs.newOrgSecret('GPG_SUBKEY_ID') {
+      value: "pass:bots/automotive.ecsp/gpg/subkey_id",
+    },
     orgs.newOrgSecret('GPG_PASSPHRASE') {
       value: "pass:bots/automotive.ecsp/gpg/passphrase",
     },
@@ -167,6 +170,11 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-api-gateway",
+        },
+      ],
     },
     orgs.newRepo('androidVehicleConnectSDK') {
       allow_merge_commit: true,
@@ -237,6 +245,11 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-helloWorldService",
+        },
+      ],
     },
     orgs.newRepo('device-client') {
       allow_merge_commit: true,
