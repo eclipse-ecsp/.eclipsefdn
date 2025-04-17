@@ -296,5 +296,35 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
         },
       ],
     },
+    orgs.newRepo('services-dependencies') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "services-dependencies manages versions of eclipse ecsp and third-party dependencies",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      }
+    },
+    orgs.newRepo('services-common') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "services-common library provides common utilities for micro-services",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      }
+    },
+    orgs.newRepo('api-common') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "api-common is library provides common functionality for exposing Rest APIs",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      }
+    },
   ],
 }
