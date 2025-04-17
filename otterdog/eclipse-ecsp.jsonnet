@@ -304,7 +304,12 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "write",
-      }
+      },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-services-dependencies",
+        },
+      ],
     },
     orgs.newRepo('services-common') {
       allow_merge_commit: true,
@@ -314,7 +319,12 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "write",
-      }
+      },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-services-common",
+        },
+      ],
     },
     orgs.newRepo('api-common') {
       allow_merge_commit: true,
@@ -324,7 +334,12 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "write",
-      }
+      },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-api-common",
+        },
+      ],
     },
   ],
 }
