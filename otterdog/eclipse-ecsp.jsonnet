@@ -393,5 +393,35 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
         },
       ],
     },
+    orgs.newRepo('device-association') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "ECSP Device association",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      }
+    },
+    orgs.newRepo('device-activation') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "ECSP Device activation",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      }
+    },
+    orgs.newRepo('device-factory-management') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "ECSP Device factory management",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      }
+    }
   ],
 }
