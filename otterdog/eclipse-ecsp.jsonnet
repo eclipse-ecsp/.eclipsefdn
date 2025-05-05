@@ -437,6 +437,16 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
           value: "pass:bots/automotive.ecsp/sonarcloud.io/token-device-factory-management",
         },
       ],
+    },
+    orgs.newRepo('docker-base-image') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "ECSP docker base images",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      }
     }
   ],
 }
