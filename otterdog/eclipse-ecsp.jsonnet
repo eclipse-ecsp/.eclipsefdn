@@ -446,7 +446,7 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "write",
-      }
+      },
     },
     orgs.newRepo('device-shadow') {
       allow_merge_commit: true,
