@@ -448,6 +448,16 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
         default_workflow_permissions: "write",
       },
     },
+    orgs.newRepo('vehicle-profile') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "ECSP vehicle profile",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+    },
     orgs.newRepo('device-shadow') {
       allow_merge_commit: true,
       allow_update_branch: false,
