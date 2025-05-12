@@ -457,6 +457,11 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-vehicule-profile",
+        },
+      ],
     },
     orgs.newRepo('device-shadow') {
       allow_merge_commit: true,
@@ -502,6 +507,11 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-device-message",
+        },
+      ],
     },
     orgs.newRepo('hivemq-extension') {
       allow_merge_commit: true,
@@ -512,6 +522,11 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-hivemq-extension",
+        },
+      ],
     },
     orgs.newRepo('ro') {
       allow_merge_commit: true,
@@ -522,6 +537,11 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-ro",
+        },
+      ],
     },
     orgs.newRepo('notification-center') {
       allow_merge_commit: true,
@@ -532,6 +552,11 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-notification-center",
+        },
+      ],
     },
   ],
 }
