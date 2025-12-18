@@ -11,6 +11,12 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
     },
   },
   secrets+: [
+    orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_PASSWORD') {
+      value: "pass:bots/automotive.ecsp/central.sonatype.org/token-password",
+    },
+    orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_USERNAME') {
+      value: "pass:bots/automotive.ecsp/central.sonatype.org/token-username",
+    },
     orgs.newOrgSecret('DOCKER_API_TOKEN') {
       value: "pass:bots/automotive.ecsp/docker.com/api-token",
     },
@@ -34,12 +40,6 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
     },
     orgs.newOrgSecret('GPG_SUBKEY_ID') {
       value: "pass:bots/automotive.ecsp/gpg/subkey_id",
-    },
-    orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_PASSWORD') {
-      value: "pass:bots/automotive.ecsp/central.sonatype.org/token-password",
-    },
-    orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_USERNAME') {
-      value: "pass:bots/automotive.ecsp/central.sonatype.org/token-username",
     },
   ],
   _repositories+:: [
@@ -122,6 +122,36 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
         },
       ],
     },
+    orgs.newRepo('device-activation') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "ECSP Device activation",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-device-activation",
+        },
+      ],
+    },
+    orgs.newRepo('device-association') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "ECSP Device association",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-device-association",
+        },
+      ],
+    },
     orgs.newRepo('device-client') {
       allow_merge_commit: true,
       allow_update_branch: false,
@@ -136,6 +166,76 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
           value: "pass:bots/automotive.ecsp/sonarcloud.io/token-device-client",
         },
       ],
+    },
+    orgs.newRepo('device-common') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "ECSP Device common",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-device-common",
+        },
+      ],
+    },
+    orgs.newRepo('device-factory-management') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "ECSP Device factory management",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-device-factory-management",
+        },
+      ],
+    },
+    orgs.newRepo('device-message') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "Device Message repo to maintain code to publish message to device / vehicle",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-device-message",
+        },
+      ],
+    },
+    orgs.newRepo('device-shadow') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "ECSP Device shadow",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-device-shadow",
+        },
+      ],
+    },
+    orgs.newRepo('docker-base-image') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "ECSP docker base images",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
     },
     orgs.newRepo('ecsp-app-of-apps') {
       allow_merge_commit: true,
@@ -209,6 +309,21 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
         },
       ],
     },
+    orgs.newRepo('hivemq-extension') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "HiveMQ Extension repo to maintain code for custom hivemq extensions",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-hivemq-extension",
+        },
+      ],
+    },
     orgs.newRepo('iOSVehicleConnectApp') {
       allow_merge_commit: true,
       allow_update_branch: false,
@@ -243,6 +358,7 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       allow_merge_commit: true,
       allow_update_branch: false,
       delete_branch_on_merge: false,
+      dependabot_security_updates_enabled: true,
       description: "ECSP NoSQL DAO library",
       web_commit_signoff_required: false,
       workflows+: {
@@ -251,6 +367,36 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       secrets: [
         orgs.newRepoSecret('SONAR_TOKEN') {
           value: "pass:bots/automotive.ecsp/sonarcloud.io/token-nosql-dao",
+        },
+      ],
+    },
+    orgs.newRepo('notification-center') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "Notification Center repo to maintain code which supports different notification channels",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-notification-center",
+        },
+      ],
+    },
+    orgs.newRepo('ro') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "Repo to maintain code for Remote Operation functions",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-ro",
         },
       ],
     },
@@ -346,6 +492,21 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
         },
       ],
     },
+    orgs.newRepo('uidam-portal') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "Administering the UIDAM system, enabling management of users, accounts, roles, scopes configurations.",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-uidam-portal",
+        },
+      ],
+    },
     orgs.newRepo('uidam-user-management') {
       allow_merge_commit: true,
       allow_update_branch: false,
@@ -378,76 +539,6 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
         },
       ],
     },
-    orgs.newRepo('device-common') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      description: "ECSP Device common",
-      web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "write",
-      },
-      secrets: [
-        orgs.newRepoSecret('SONAR_TOKEN') {
-          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-device-common",
-        },
-      ],
-    },
-    orgs.newRepo('device-association') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      description: "ECSP Device association",
-      web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "write",
-      },
-      secrets: [
-        orgs.newRepoSecret('SONAR_TOKEN') {
-          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-device-association",
-        },
-      ],
-    },
-    orgs.newRepo('device-activation') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      description: "ECSP Device activation",
-      web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "write",
-      },
-      secrets: [
-        orgs.newRepoSecret('SONAR_TOKEN') {
-          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-device-activation",
-        },
-      ],
-    },
-    orgs.newRepo('device-factory-management') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      description: "ECSP Device factory management",
-      web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "write",
-      },
-      secrets: [
-        orgs.newRepoSecret('SONAR_TOKEN') {
-          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-device-factory-management",
-        },
-      ],
-    },
-    orgs.newRepo('docker-base-image') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      description: "ECSP docker base images",
-      web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "write",
-      },
-    },
     orgs.newRepo('vehicle-profile') {
       allow_merge_commit: true,
       allow_update_branch: false,
@@ -462,111 +553,6 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
           value: "pass:bots/automotive.ecsp/sonarcloud.io/token-vehicule-profile",
         },
       ],
-    },
-    orgs.newRepo('device-shadow') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      description: "ECSP Device shadow",
-      web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "write",
-      },
-      secrets: [
-        orgs.newRepoSecret('SONAR_TOKEN') {
-          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-device-shadow",
-        },
-      ],
-    },
-    orgs.newRepo('ecsp-helm-charts') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      description: "Repository to maintain helm charts of all ECSP components",
-      web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "write",
-      },
-    },
-    orgs.newRepo('ecsp-app-of-apps') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      description: "App of apps repository to maintain charts for deploying ECSP components",
-      web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "write",
-      },
-    },
-    orgs.newRepo('device-message') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      description: "Device Message repo to maintain code to publish message to device / vehicle",
-      web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "write",
-      },
-      secrets: [
-        orgs.newRepoSecret('SONAR_TOKEN') {
-          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-device-message",
-        },
-      ],
-    },
-    orgs.newRepo('hivemq-extension') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      description: "HiveMQ Extension repo to maintain code for custom hivemq extensions",
-      web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "write",
-      },
-      secrets: [
-        orgs.newRepoSecret('SONAR_TOKEN') {
-          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-hivemq-extension",
-        },
-      ],
-    },
-    orgs.newRepo('ro') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      description: "Repo to maintain code for Remote Operation functions",
-      web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "write",
-      },
-      secrets: [
-        orgs.newRepoSecret('SONAR_TOKEN') {
-          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-ro",
-        },
-      ],
-    },
-    orgs.newRepo('notification-center') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      description: "Notification Center repo to maintain code which supports different notification channels",
-      web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "write",
-      },
-      secrets: [
-        orgs.newRepoSecret('SONAR_TOKEN') {
-          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-notification-center",
-        },
-      ],
-    },
-   orgs.newRepo('uidam-portal') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      description: "Administering the UIDAM system, enabling management of users, accounts, roles, scopes configurations.",
-      web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "write",
-      },     
     },
   ],
 }
