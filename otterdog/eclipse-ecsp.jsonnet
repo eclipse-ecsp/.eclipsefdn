@@ -325,7 +325,7 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       },
       secrets: [
         orgs.newRepoSecret('SONAR_TOKEN') {
-          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-transformers",
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-tranformers",
         },
       ],
     },
@@ -459,7 +459,7 @@ orgs.newOrg('automotive.ecsp', 'eclipse-ecsp') {
       },
       secrets: [
         orgs.newRepoSecret('SONAR_TOKEN') {
-          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-vehicule-profile",
+          value: "pass:bots/automotive.ecsp/sonarcloud.io/token-vehicle-profile",
         },
       ],
     },
